@@ -2,9 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet">
     <title>Genderize</title>
 </head>
 <body>
+    <div class="container">
+        <div class="content">
+            <form>
+                <div class="item">
+                    <H1>Mr. Or Ms.?</H1>
+                </div>
+                <div class="item">
+                    <label>
+                    name <input type="text" name="name"/>
+                    </label>
+                </div>
+
+                <div class="form_part">
+                    <div class="item">
+                        <label>
+                            <input type="radio" name="gender" value="male"> male
+                        </label>
+                    </div>
+                    <div class="item">
+                       <label>
+                           <input type="radio" name="gender" value="female"> female
+                        </label>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <input id="submit" type="button" value="Submit">
+                </div>
+                <div class="item">
+                    <input id="save" type="button" value="Save">
+                </div>
+            </form>
+        </div>
+        <div class="content">
+            <div class="item">
+                <H1>Prediction</H1>
+            </div>
+            <div id="predicted_gender" class="item">
+                gender
+            </div>
+            <div id="predicted_probability" class="item">
+                probability
+            </div>
+
+            <div class="saved-content">
+                <div class="item">
+                    <H1>Saved Answer</H1>
+                </div>
+                <div id="saved_gender" class="item">
+                    saved gender
+                </div>
+                <div class="item">
+                    <input id="clear" type="button" value="Clear">
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>
