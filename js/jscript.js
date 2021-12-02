@@ -6,6 +6,33 @@ function submitName(event) {
     //    does it already exist?
     //    send request
     //    update elements
+        let url = 'https://api.genderize.io/?name=' + name
+        fetch(url)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(
+                        "Network response was not ok, " + response.status
+                    );
+                }
+                return response.json();
+            })
+            .then((content) => {
+                if (content['gender'] != null) {
+                    document.getElementById('predicted_gender').innerHTML = `Gender: ${content['gender']}`
+                    document.getElementById('predicted_probability').innerHTML = `Probability: ${content['probability']}`
+                }
+                else {
+                    document.getElementById('predicted_gender').innerHTML = `Gender:`
+                    document.getElementById('predicted_probability').innerHTML = `Probability:`
+                    raiseFlag('Genderize does not consider your name valid!')
+                }
+
+
+            })
+            .catch((error) => {
+                raiseFlag(error)
+            });
+
     }
 
 
