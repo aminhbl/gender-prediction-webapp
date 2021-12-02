@@ -65,3 +65,10 @@ h1 {
 .form_part {
     margin: 15px 15px 15px 0;
 }
+
+#flag {
+    color: white;
+    font-size: 18px;
+    background-color: rgba(207, 12, 12, 0.5);
+    transition: height .3s;
+}
