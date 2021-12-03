@@ -116,7 +116,7 @@ function raiseFlag(error) {
         document.getElementById("flag").style.padding = "0";
         document.getElementById("flag").style.height = "0";
         document.getElementById("flag").innerHTML = '';
-    }, 5500);
+    }, 4500);
 }
 
 document.getElementById('submit').onclick = submitName

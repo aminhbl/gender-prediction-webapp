@@ -77,3 +77,13 @@ h1 {
     visibility: hidden;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#git {
+    width: 90px;
+    height: 55px;
+}
