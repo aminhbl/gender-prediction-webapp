@@ -27,7 +27,6 @@ function submitName(event) {
                     raiseFlag('Genderize does not consider your name valid!')
                 }
 
-
             })
             .catch((error) => {
                 raiseFlag(error)
@@ -36,6 +35,40 @@ function submitName(event) {
     }
 
 
+}
+
+function saveName(event) {
+    let name = validateName(event)
+    let predicted_gender = document.getElementById('predicted_gender').innerHTML.split(" ")
+    if (name) {
+        let gender = validateGender(event)
+        if (gender) {
+            localStorage.removeItem(name)
+            localStorage.setItem(name, gender);
+
+            raiseFlag(`\"${name}\" is now saved as \"${gender}\"`)
+        }
+        else if (predicted_gender.length > 1) {
+            localStorage.removeItem(name)
+            localStorage.setItem(name, predicted_gender[1]);
+
+            raiseFlag(`\"${name}\" is now saved as \"${predicted_gender[1]}\"`)
+        }
+        else {
+            raiseFlag('You must select a gender before saving!')
+            event.preventDefault()
+        }
+    }
+}
+
+function validateGender(event) {
+    let radios = document.getElementsByName('gender')
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            return radios[i].value
+        }
+    }
+    return null
 }
 
 function validateName(event) {
@@ -69,3 +102,4 @@ function raiseFlag(error) {
 }
 
 document.getElementById('submit').onclick = submitName
+document.getElementById('save').onclick = saveName

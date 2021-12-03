@@ -72,3 +72,7 @@ h1 {
     background-color: rgba(207, 12, 12, 0.5);
     transition: height .3s;
 }
+
+#saved_gender {
+    /*visibility: hidden;*/
+}
