@@ -1,3 +1,6 @@
+/*
+Making sure that body is at 100 percent and putting display of the page on flex, helping to center the main container.
+ */
 html, body {
 
     min-height: 100%;
@@ -11,6 +14,9 @@ html, body {
     justify-content: center;
 }
 
+/*
+setting up the background image making sure that it covers the whole page and not more
+ */
 body {
     background-image: url("../img/background.jpg");
     background-size: cover;
@@ -18,10 +24,16 @@ body {
     background-position: center;
 }
 
+/*
+removing side and top margin from h1, making the arrangement a little more tidier
+ */
 h1 {
     margin: 0 0 10px;
 }
 
+/*
+The main container which sits in the middle of the page. It arranges two contents in row direction, both centered.
+ */
 .container {
     background-color: rgba(40, 40, 40, 0.5);
     border-radius: 10px;
@@ -32,6 +44,11 @@ h1 {
     justify-content: center;
 }
 
+/*
+Two contents, one for 'form' and another for showing the 'predictions'.
+Padding is included in each of the two, making things look tidier.
+In itself each container would arrange for items in column direction.
+ */
 .content {
     background-color: rgba(40, 40, 40, 0.6);
     padding: 30px !important;
@@ -43,6 +60,11 @@ h1 {
     color: aliceblue;
 }
 
+/*
+Styling items in contents. Each one would align from the far left with a small padding all around.
+Items are in flex layout as well specifically for the box where we show saved genders.
+Also it makes buttons stretch and look nicer.
+ */
 .item {
     flex-grow: 1;
     padding: 5px;
@@ -52,6 +74,10 @@ h1 {
     flex-direction: column;
 }
 
+/*
+The box that will show saved genders in form of a column flex container itself.
+There is a drop shadow and difference in opacity of the background making it easier to be distinguished.
+ */
 .saved-content {
     flex-grow: 1;
     box-shadow: 0 5px 40px rgba(21, 69, 140, 0.4);
@@ -62,10 +88,18 @@ h1 {
     /*visibility: hidden;*/
 }
 
+/*
+This class wraps around radio buttons and putts a margin between them and other items within the container.
+ */
 .form_part {
     margin: 15px 15px 15px 0;
 }
 
+/*
+styling the error and message bar which is named flag.
+It has a mild red background and transition for height to make it look like its slowly coming out of the container.
+Refer to js code and raiseFlag function to see how it works.
+ */
 #flag {
     color: white;
     font-size: 18px;
@@ -73,16 +107,26 @@ h1 {
     transition: height .3s;
 }
 
+/*
+Saved gender and clear button would be hidden by default, unless the name being submitted has a record in local storage.
+In that case they would turn visible by js code.
+ */
 #saved_gender, #clear_button {
     visibility: hidden;
 }
 
+/*
+This class is used to determine the position of the github icon. Which is absolute and on bottom-right corner.
+ */
 .footer {
     position: absolute;
     bottom: 0;
     right: 0;
 }
 
+/*
+Following the class above, this id is set to size the github icon.
+ */
 #git {
     width: 90px;
     height: 55px;
