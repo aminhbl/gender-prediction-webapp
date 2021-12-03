@@ -3,9 +3,15 @@
 function submitName(event) {
     let name = validateName(event)
     if (name) {
-    //    does it already exist?
-    //    send request
-    //    update elements
+
+        let saved_gender = localStorage.getItem(name)
+        if (saved_gender != null) {
+            document.getElementById('saved_gender').style.visibility = 'visible'
+            document.getElementById('saved_gender').innerHTML = `Gender: ${saved_gender}`
+        } else {
+            document.getElementById('saved_gender').style.visibility = 'hidden'
+        }
+
         let url = 'https://api.genderize.io/?name=' + name
         fetch(url)
             .then((response) => {
