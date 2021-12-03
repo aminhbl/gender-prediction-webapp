@@ -7,9 +7,11 @@ function submitName(event) {
         let saved_gender = localStorage.getItem(name)
         if (saved_gender != null) {
             document.getElementById('saved_gender').style.visibility = 'visible'
+            document.getElementById('clear_button').style.visibility = 'visible'
             document.getElementById('saved_gender').innerHTML = `Gender: ${saved_gender}`
         } else {
             document.getElementById('saved_gender').style.visibility = 'hidden'
+            document.getElementById('clear_button').style.visibility = 'hidden'
         }
 
         let url = 'https://api.genderize.io/?name=' + name
@@ -67,6 +69,16 @@ function saveName(event) {
     }
 }
 
+function clearName(event) {
+    let name = validateName(event)
+    if (name) {
+        localStorage.removeItem(name)
+        raiseFlag(`\"${name}\" is now cleared from local storage!`)
+        document.getElementById('saved_gender').style.visibility = 'hidden'
+        document.getElementById('clear_button').style.visibility = 'hidden'
+    }
+}
+
 function validateGender(event) {
     let radios = document.getElementsByName('gender')
     for (let i = 0; i < radios.length; i++) {
@@ -104,8 +116,9 @@ function raiseFlag(error) {
         document.getElementById("flag").style.padding = "0";
         document.getElementById("flag").style.height = "0";
         document.getElementById("flag").innerHTML = '';
-    }, 4500);
+    }, 5500);
 }
 
 document.getElementById('submit').onclick = submitName
 document.getElementById('save').onclick = saveName
+document.getElementById('clear').onclick = clearName

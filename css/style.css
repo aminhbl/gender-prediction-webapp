@@ -1,4 +1,4 @@
-body, html {
+html, body {
 
     min-height: 100%;
     max-height: 100%;
@@ -73,6 +73,7 @@ h1 {
     transition: height .3s;
 }
 
-#saved_gender {
+#saved_gender, #clear_button {
     visibility: hidden;
 }
+
